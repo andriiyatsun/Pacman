@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 public class Frog extends JFrame{
 
     public Frog() {
-        add(new Model());
+        add(new GameWindow());
 
         this.setVisible(true);
         this.setTitle("Frog Adventures");
