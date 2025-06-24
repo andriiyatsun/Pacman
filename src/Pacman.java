@@ -7,8 +7,9 @@ public class Pacman extends JFrame{
 
         this.setVisible(true);
         this.setTitle("PAC-MAN");
-        this.setSize(380,425);
+        this.setSize(380,430);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 }

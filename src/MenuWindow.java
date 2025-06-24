@@ -20,7 +20,12 @@ public class MenuWindow extends JFrame {
 
     private static final int BUTTON_VERTICAL_MARGIN = 15;
 
+    private Image backgroundImage;
+
     public MenuWindow() {
+        // Завантажуємо фонове зображення
+        backgroundImage = new ImageIcon("resources/images/menu/menu_background.png").getImage(); // Заміни на шлях до свого фону
+
         /* Set window parameters */
         ImageIcon icon = new ImageIcon("resources/images/logo.png");
         setIconImage(icon.getImage());
@@ -73,9 +78,6 @@ public class MenuWindow extends JFrame {
         panel.add(Box.createRigidArea(new Dimension(0, BUTTON_VERTICAL_MARGIN)));
         panel.add(button_play);
         panel.add(Box.createRigidArea(new Dimension(0, BUTTON_VERTICAL_MARGIN)));
-        ///game scores
-//        panel.add(button_scores);
-//        panel.add(Box.createRigidArea(new Dimension(0, BUTTON_VERTICAL_MARGIN)));
         panel.add(button_exit);
 
         /* Adding vertical glue to center buttons vertically */
@@ -88,6 +90,13 @@ public class MenuWindow extends JFrame {
         this.setVisible(true);
     }
 
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        // Малюємо фонове зображення
+        g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+    }
+
     public static void main(String[] args) {
         new MenuWindow();  // Creating and adding window
     }
@@ -97,7 +106,7 @@ public class MenuWindow extends JFrame {
         button.setFont(new Font("Arial", Font.BOLD, BUTTON_FONT_SIZE));
 
         button.setBackground(Color.BLACK);  // Колір фону
-        button.setForeground(Color.yellow);
+        button.setForeground(Color.white);
 
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -112,7 +121,7 @@ public class MenuWindow extends JFrame {
     private JLabel createLabel(String text){
         JLabel label = new JLabel(text, JLabel.CENTER);
         label.setFont(new Font("Arial", Font.BOLD, LABEL_NAME_FONT_SIZE));
-        label.setForeground(Color.yellow);
+        label.setForeground(Color.white);
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         Dimension labelSize = new Dimension(LABEL_NAME_WIDTH, LABEL_NAME_HEIGHT);
